@@ -38,14 +38,14 @@ const Index = () => {
   };
 
   return (
-    <Box p={8} bg="bg.dark">
+    <Box bg="bg.dark" h="100vh">
       <Heading as="h1" size="2xl" mb={8}>
         Website & App Builder
       </Heading>
       <HStack spacing={8} alignItems="flex-start">
         <VStack w="50%" spacing={4} alignItems="stretch">
           <Heading size="lg">Whiteboard</Heading>
-          <Box bg="white" borderWidth={1} borderColor="gray.600" rounded="md" h="500px" p={4} onDrop={handleDrop} onDragOver={(event) => event.preventDefault()}>
+          <Box bg="white" borderWidth={1} borderColor="gray.600" rounded="md" h="calc(100vh - 200px)" p={4} onDrop={handleDrop} onDragOver={(event) => event.preventDefault()}>
             {elements.map((element, index) => (
               <Box key={index} position="absolute" left={`${element.x}px`} top={`${element.y}px`}>
                 {element.type === "image" && <Image borderWidth={1} borderColor="gray.600" src="https://images.unsplash.com/photo-1655148999626-56ce0c641069?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxwbGFjZWhvbGRlciUyMGltYWdlfGVufDB8fHx8MTcxMjQwODMyM3ww&ixlib=rb-4.0.3&q=80&w=1080" w="100px" />}
