@@ -45,17 +45,17 @@ const Index = () => {
       <HStack spacing={8} alignItems="flex-start">
         <VStack w="50%" spacing={4} alignItems="stretch">
           <Heading size="lg">Whiteboard</Heading>
-          <Box borderWidth={2} borderStyle="dashed" borderColor="gray.200" rounded="md" h="500px" p={4} onDrop={handleDrop} onDragOver={(event) => event.preventDefault()}>
+          <Box bg="bg.dark" borderWidth={1} borderColor="gray.600" rounded="md" h="500px" p={4} onDrop={handleDrop} onDragOver={(event) => event.preventDefault()}>
             {elements.map((element, index) => (
               <Box key={index} position="absolute" left={`${element.x}px`} top={`${element.y}px`}>
-                {element.type === "image" && <Image src="https://images.unsplash.com/photo-1655148999626-56ce0c641069?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxwbGFjZWhvbGRlciUyMGltYWdlfGVufDB8fHx8MTcxMjQwODMyM3ww&ixlib=rb-4.0.3&q=80&w=1080" w="100px" />}
+                {element.type === "image" && <Image borderWidth={1} borderColor="gray.600" src="https://images.unsplash.com/photo-1655148999626-56ce0c641069?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxwbGFjZWhvbGRlciUyMGltYWdlfGVufDB8fHx8MTcxMjQwODMyM3ww&ixlib=rb-4.0.3&q=80&w=1080" w="100px" />}
                 {element.type === "text" && (
-                  <Text contentEditable suppressContentEditableWarning fontSize="2xl">
+                  <Text borderWidth={1} borderColor="gray.600" contentEditable suppressContentEditableWarning fontSize="2xl">
                     Text
                   </Text>
                 )}
                 {element.type === "code" && (
-                  <Box as="pre" bg="gray.100" p={2} rounded="md" fontSize="sm" fontFamily="mono">
+                  <Box borderWidth={1} borderColor="gray.600" as="pre" bg="gray.700" color="white" p={2} rounded="md" fontSize="sm" fontFamily="mono">
                     {"<Button>Code</Button>"}
                   </Box>
                 )}
