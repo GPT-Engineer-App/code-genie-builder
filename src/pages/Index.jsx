@@ -66,13 +66,13 @@ const Index = () => {
         </VStack>
         <VStack w="50%" spacing={4} alignItems="stretch">
           <Heading size="lg">Code Editor</Heading>
-          <Box borderWidth={1} borderColor="gray.600" bg="white" p={4} rounded="md" h="200px" overflowY="auto">
+          <Box borderWidth={1} borderColor="gray.600" bg="white" color="black" p={4} rounded="md" h="200px" overflowY="auto">
             <pre>{code}</pre>
           </Box>
           <Button leftIcon={<FaCode />} colorScheme="blue" onClick={handleGenerateCode} mb={4}>
             Generate Code
           </Button>
-          <Textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} placeholder="Enter code description for AI to generate code..." h="100px" />
+          <Textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} placeholder="Enter code description for AI to generate code..." color="white" h="100px" />
           <HStack spacing={4}>
             <VStack as="button" spacing={1} draggable onDragStart={(event) => handleDragStart(event, "image")}>
               <FaImage />
