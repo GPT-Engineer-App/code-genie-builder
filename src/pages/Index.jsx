@@ -3,6 +3,7 @@ import { Box, Heading, VStack, HStack, Text, Textarea, Button, useToast, Image }
 import { FaPlus, FaCode, FaImage, FaFont } from "react-icons/fa";
 
 const Index = () => {
+  const [prompt, setPrompt] = useState("");
   const [code, setCode] = useState("");
   const [elements, setElements] = useState([]);
   const toast = useToast();
@@ -12,7 +13,7 @@ const Index = () => {
       const response = await fetch("/api/generate-code", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: code }),
+        body: JSON.stringify({ prompt }),
       });
       const data = await response.json();
       setCode(data.code);
@@ -65,10 +66,13 @@ const Index = () => {
         </VStack>
         <VStack w="50%" spacing={4} alignItems="stretch">
           <Heading size="lg">Code Editor</Heading>
-          <Textarea value={code} onChange={(e) => setCode(e.target.value)} placeholder="Enter code or description for AI to generate code..." h="200px" />
-          <Button leftIcon={<FaCode />} colorScheme="blue" onClick={handleGenerateCode}>
+          <Box borderWidth={1} borderColor="gray.600" bg="white" p={4} rounded="md" h="200px" overflowY="auto">
+            <pre>{code}</pre>
+          </Box>
+          <Button leftIcon={<FaCode />} colorScheme="blue" onClick={handleGenerateCode} mb={4}>
             Generate Code
           </Button>
+          <Textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} placeholder="Enter code description for AI to generate code..." h="100px" />
           <HStack spacing={4}>
             <VStack as="button" spacing={1} draggable onDragStart={(event) => handleDragStart(event, "image")}>
               <FaImage />
